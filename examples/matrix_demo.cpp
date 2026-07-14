@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <axion/matrix.hpp>
-#include <axion/version.hpp>
 
 int main() {
     std::cout << axion::VERSION << "\n";
