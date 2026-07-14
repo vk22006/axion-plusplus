@@ -8,14 +8,14 @@ axion::Matrix::Matrix(size_t rows, size_t cols) {
     M.resize(rows, std::vector<double>(cols));
 }
 
-axion::Matrix::Matrix(const std::vector<std::vector<double>>& M) {
+axion::Matrix::Matrix(const matrix& M) {
     this->M = M;
     cols = M[0].size();
     rows = M.size();
 }
 
-std::vector<std::vector<double>> axion::Matrix::add(const std::vector<std::vector<double>>& mat_A, const std::vector<std::vector<double>>& mat_B) {
-    std::vector<std::vector<double>> mat_C;
+axion::matrix axion::Matrix::add(const matrix& mat_A, const matrix& mat_B) {
+    matrix mat_C;
     mat_C.resize(rows, std::vector<double>(cols));
 
     for(int i=0; i<cols; i++) {
@@ -27,8 +27,8 @@ std::vector<std::vector<double>> axion::Matrix::add(const std::vector<std::vecto
     return mat_C;
 }
 
-std::vector<std::vector<double>> axion::Matrix::subtract(const std::vector<std::vector<double>>& mat_A, const std::vector<std::vector<double>>& mat_B) {
-    std::vector<std::vector<double>> mat_C;
+axion::matrix axion::Matrix::subtract(const matrix& mat_A, const matrix& mat_B) {
+    matrix mat_C;
     mat_C.resize(rows, std::vector<double>(cols));
 
     for(int i=0; i<cols; i++) {
@@ -40,8 +40,8 @@ std::vector<std::vector<double>> axion::Matrix::subtract(const std::vector<std::
     return mat_C;
 }
 
-std::vector<std::vector<double>> axion::Matrix::transposeOf(const std::vector<std::vector<double>>& mat_A) {
-    std::vector<std::vector<double>> mat_t;
+axion::matrix axion::Matrix::transposeOf(const matrix& mat_A) {
+    matrix mat_t;
     mat_t.resize(rows, std::vector<double>(cols));
 
     for(int i=0; i<cols; i++) {
@@ -61,7 +61,7 @@ size_t axion::Matrix::colCount() {
     return cols;
 }
 
-void axion::Matrix::input(std::vector<std::vector<double>>& mat) {
+void axion::Matrix::input(matrix& mat) {
     for(int i=0; i<cols; i++) {
         for(int j=0; j<rows; j++) {
             std::cin >> mat[i][j];
@@ -69,7 +69,7 @@ void axion::Matrix::input(std::vector<std::vector<double>>& mat) {
     }
 }
 
-void axion::Matrix::display(const std::vector<std::vector<double>>& mat) {
+void axion::Matrix::display(const matrix& mat) {
     for(int i=0; i<cols; i++) {
         for(int j=0; j<rows; j++) {
             std::cout << mat[i][j] << " ";
