@@ -13,11 +13,12 @@ int main() {
 
     axion::Matrix A(data);
     
-    axion::matrix res = A.add(data, data);
-    A.display(res);
+    axion::matrix res = A + A;
+    axion::Matrix R(res);
+    std::cout << R;
 
-    std::cout << "Rows = " << A.rowCount() << "\n";
-    std::cout << "Cols = " << A.colCount();
+    std::cout << "Rows = " << A.rows_() << "\n";
+    std::cout << "Cols = " << A.cols_();
 
     return 0;
 }
