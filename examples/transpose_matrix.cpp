@@ -5,7 +5,7 @@
 int main() {
     std::cout << axion::VERSION << "\n";
 
-    std::vector<std::vector<double>> data = {
+    axion::matrix data = {
         {1, 2, 3},
         {4, 5, 6},
         {7, 8, 9}
@@ -13,7 +13,7 @@ int main() {
 
     axion::Matrix A(data);
 
-    std::vector<std::vector<double>> t = A.transposeOf(data);
+    axion::matrix t = A.transposeOf(data);
     A.display(t);
 
     std::cout << "Rows = " << A.rowCount() << "\n";
