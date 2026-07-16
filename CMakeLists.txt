@@ -31,8 +31,15 @@ target_include_directories(axion
 add_executable(matrix_demo
     examples/matrix_demo.cpp
 )
+add_executable(transpose_matrix
+    examples/transpose_matrix.cpp
+)
 
 target_link_libraries(matrix_demo
+    PRIVATE
+        axion
+)
+target_link_libraries(transpose_matrix
     PRIVATE
         axion
 )
