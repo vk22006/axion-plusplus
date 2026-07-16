@@ -34,12 +34,19 @@ add_executable(matrix_demo
 add_executable(transpose_matrix
     examples/transpose_matrix.cpp
 )
+add_executable(scalar_operations
+    examples/scalar_operations.cpp
+)
 
 target_link_libraries(matrix_demo
     PRIVATE
         axion
 )
 target_link_libraries(transpose_matrix
+    PRIVATE
+        axion
+)
+target_link_libraries(scalar_operations
     PRIVATE
         axion
 )
