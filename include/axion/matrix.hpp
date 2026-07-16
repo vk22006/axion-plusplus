@@ -14,8 +14,15 @@ class Matrix {
         Matrix(size_t rows, size_t cols);
         Matrix(const matrix& M);
 
+        // Matrix Operations (Matrix with Matrix)
         matrix operator+(Matrix& mat_B);
         matrix operator-(Matrix& mat_B);
+
+        // Scalar Operations (Matrix with number)
+        matrix operator+(int x);
+        matrix operator-(int x);
+        matrix operator*(int x);
+        matrix operator/(int x);
 
         matrix transpose();
 

@@ -38,6 +38,51 @@ axion::matrix axion::Matrix::operator-(Matrix& mat_b) {
     return mat_C;
 }
 
+axion::matrix axion::Matrix::operator+(int x) {
+    matrix mat_C(rows, std::vector<double>(cols));
+
+    for(int i=0; i<cols; i++) {
+        for(int j=0; j<rows; j++) {
+            mat_C[i][j] = M[i][j] + x;
+        }
+    }
+    return mat_C;
+}
+
+axion::matrix axion::Matrix::operator-(int x) {
+    matrix mat_C(rows, std::vector<double>(cols));
+
+    for(int i=0; i<cols; i++) {
+        for(int j=0; j<rows; j++) {
+            mat_C[i][j] = M[i][j] - x;
+        }
+    }
+    return mat_C;
+}
+
+axion::matrix axion::Matrix::operator*(int x) {
+    matrix mat_C(rows, std::vector<double>(cols));
+
+    for(int i=0; i<cols; i++) {
+        for(int j=0; j<rows; j++) {
+            mat_C[i][j] = M[i][j] * x;
+        }
+    }
+    return mat_C;
+}
+
+axion::matrix axion::Matrix::operator/(int x) {
+    matrix mat_C(rows, std::vector<double>(cols));
+
+    for(int i=0; i<cols; i++) {
+        for(int j=0; j<rows; j++) {
+            mat_C[i][j] = M[i][j] / x;
+        }
+    }
+    return mat_C;
+}
+
+
 axion::matrix axion::Matrix::transpose() {
     matrix mat_t;
     mat_t.resize(rows, std::vector<double>(cols));
