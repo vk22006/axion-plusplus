@@ -14,50 +14,52 @@ axion::Matrix::Matrix(const matrix& M) {
     rows = M.size();
 }
 
-axion::matrix axion::Matrix::add(const matrix& mat_A, const matrix& mat_B) {
+axion::matrix axion::Matrix::operator+(Matrix& mat_b) {
     matrix mat_C;
     mat_C.resize(rows, std::vector<double>(cols));
 
     for(int i=0; i<cols; i++) {
         for(int j=0; j<rows; j++) {
-            mat_C[i][j] = mat_A[i][j] + mat_B[i][j];
+            mat_C[i][j] = M[i][j] + mat_b(i,j);
         }
     }
-
     return mat_C;
 }
 
-axion::matrix axion::Matrix::subtract(const matrix& mat_A, const matrix& mat_B) {
+axion::matrix axion::Matrix::operator-(Matrix& mat_b) {
     matrix mat_C;
     mat_C.resize(rows, std::vector<double>(cols));
 
     for(int i=0; i<cols; i++) {
         for(int j=0; j<rows; j++) {
-            mat_C[i][j] = mat_A[i][j] - mat_B[i][j];
+            mat_C[i][j] = M[i][j] - mat_b(i,j);
         }
     }
-
     return mat_C;
 }
 
-axion::matrix axion::Matrix::transposeOf(const matrix& mat_A) {
+axion::matrix axion::Matrix::transpose() {
     matrix mat_t;
     mat_t.resize(rows, std::vector<double>(cols));
 
     for(int i=0; i<cols; i++) {
         for(int j=0; j<rows; j++) {
-            mat_t[i][j] = mat_A[j][i];
+            mat_t[i][j] = M[j][i];
         }
     }
 
     return mat_t;
 }
 
-size_t axion::Matrix::rowCount() {
+double axion::Matrix::operator()(int i, int j) {
+    return M[i][j];
+}
+
+size_t axion::Matrix::rows_() const {
     return rows;
 }
 
-size_t axion::Matrix::colCount() {
+size_t axion::Matrix::cols_() const {
     return cols;
 }
 
@@ -69,11 +71,27 @@ void axion::Matrix::input(matrix& mat) {
     }
 }
 
-void axion::Matrix::display(const matrix& mat) {
+std::ostream& axion::operator<<(std::ostream &out, Matrix &mat)
+{
+    for(int i=0; i<mat.cols_(); i++) {
+        for(int j=0; j<mat.rows_(); j++) {
+            out << mat(i,j) << " ";
+        }
+        out << "\n";
+    }
+
+    return out;
+}
+
+std::ostream& axion::operator<<(std::ostream &out, matrix &mat) {
+    int rows = mat[0].size();
+    int cols = mat.size();
     for(int i=0; i<cols; i++) {
         for(int j=0; j<rows; j++) {
-            std::cout << mat[i][j] << " ";
+            out << mat[i][j] << " ";
         }
-        std::cout << "\n";
+        out << "\n";
     }
+
+    return out;
 }

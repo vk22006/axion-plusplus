@@ -13,15 +13,22 @@ class Matrix {
     public:
         Matrix(size_t rows, size_t cols);
         Matrix(const matrix& M);
-        matrix add(const matrix& mat_A, const matrix& mat_B);
-        matrix subtract(const matrix& mat_A, const matrix& mat_B);
-        matrix transposeOf(const matrix& mat_A);
 
-        size_t rowCount();
-        size_t colCount();
+        matrix operator+(Matrix& mat_B);
+        matrix operator-(Matrix& mat_B);
+
+        matrix transpose();
+
+        double operator()(int i, int j);   // Returns element based on its index
+
+        size_t rows_() const;
+        size_t cols_() const;
 
         void input(matrix& mat);
-        void display(const matrix& mat);
+        friend std::ostream& operator<<(std::ostream& out, Matrix& mat);
 };
+
+// FIXME: Make the function to print matrix directly
+std::ostream& operator<<(std::ostream& out, matrix& mat);
 
 } //namespace axion
