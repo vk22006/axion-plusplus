@@ -14,7 +14,16 @@ int main() {
     axion::Matrix A(data);
     
     axion::Matrix Res = A + A;
-    std::cout << Res;
+
+    axion::Matrix I = I.identity(3);
+
+    if(A==Res) {
+        std::cout << "Both matrices are equal";
+    }
+    else {
+        std::cout << Res << "\n";
+        std::cout << I;
+    }
 
     std::cout << "Rows = " << A.rows_() << "\n";
     std::cout << "Cols = " << A.cols_();
