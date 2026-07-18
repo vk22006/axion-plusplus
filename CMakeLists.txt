@@ -37,6 +37,9 @@ add_executable(transpose_matrix
 add_executable(scalar_operations
     examples/scalar_operations.cpp
 )
+add_executable(matrix_multiplication
+    examples/matrix_multiplication.cpp
+)
 
 target_link_libraries(matrix_demo
     PRIVATE
@@ -47,6 +50,10 @@ target_link_libraries(transpose_matrix
         axion
 )
 target_link_libraries(scalar_operations
+    PRIVATE
+        axion
+)
+target_link_libraries(matrix_multiplication
     PRIVATE
         axion
 )
