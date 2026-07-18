@@ -109,25 +109,28 @@ cmake --build build
 ## Example
 
 ```cpp
+#include <iostream>
+#include <vector>
 #include <axion/matrix.hpp>
 
-using namespace axion;
+int main() {
+    std::cout << axion::VERSION << "\n";
 
-int main()
-{
-    Matrix A({
-        {1, 2},
-        {3, 4}
-    });
+    axion::matrix data = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
 
-    Matrix B({
-        {5, 6},
-        {7, 8}
-    });
+    axion::Matrix A(data);
+    
+    axion::Matrix Res = A + A;
+    std::cout << Res;
 
-    Matrix C = A * B;
+    std::cout << "Rows = " << A.rows_() << "\n";
+    std::cout << "Cols = " << A.cols_();
 
-    C.print();
+    return 0;
 }
 ```
 
