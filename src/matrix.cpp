@@ -19,8 +19,8 @@ axion::Matrix::Matrix(const matrix& M) {
 axion::Matrix axion::Matrix::operator+(Matrix& mat) {
     Matrix res_mat(rows, cols);
 
-    for(int i=0; i<cols; i++) {
-        for(int j=0; j<rows; j++) {
+    for(int i=0; i<rows; i++) {
+        for(int j=0; j<cols; j++) {
             res_mat.M[i][j] = M[i][j] + mat.M[i][j];
         }
     }
@@ -30,11 +30,26 @@ axion::Matrix axion::Matrix::operator+(Matrix& mat) {
 axion::Matrix axion::Matrix::operator-(Matrix& mat) {
     Matrix res_mat(rows, cols);
 
-    for(int i=0; i<cols; i++) {
-        for(int j=0; j<rows; j++) {
+    for(int i=0; i<rows; i++) {
+        for(int j=0; j<cols; j++) {
             res_mat.M[i][j] = M[i][j] - mat.M[i][j];
         }
     }
+    return res_mat;
+}
+
+axion::Matrix axion::Matrix::operator*(Matrix& mat) {
+    Matrix res_mat(rows, cols);
+
+    for(int i=0; i<rows; i++) {
+        for(int j=0; j<cols; j++) {
+            res_mat.M[i][j] = 0;
+            for(int k=0; k<rows; k++) {
+                res_mat.M[i][j] += M[i][k] * mat.M[k][j];
+            }
+        }
+    }
+
     return res_mat;
 }
 
@@ -43,8 +58,8 @@ axion::Matrix axion::Matrix::operator-(Matrix& mat) {
 axion::Matrix axion::Matrix::operator+(int x) {
     Matrix mat(rows, cols);
 
-    for(int i=0; i<cols; i++) {
-        for(int j=0; j<rows; j++) {
+    for(int i=0; i<rows; i++) {
+        for(int j=0; j<cols; j++) {
             mat.M[i][j] = M[i][j] + x;
         }
     }
@@ -54,8 +69,8 @@ axion::Matrix axion::Matrix::operator+(int x) {
 axion::Matrix axion::Matrix::operator-(int x) {
     Matrix mat(rows, cols);
 
-    for(int i=0; i<cols; i++) {
-        for(int j=0; j<rows; j++) {
+    for(int i=0; i<rows; i++) {
+        for(int j=0; j<cols; j++) {
             mat.M[i][j] = M[i][j] - x;
         }
     }
@@ -65,8 +80,8 @@ axion::Matrix axion::Matrix::operator-(int x) {
 axion::Matrix axion::Matrix::operator*(int x) {
     Matrix mat(rows, cols);
 
-    for(int i=0; i<cols; i++) {
-        for(int j=0; j<rows; j++) {
+    for(int i=0; i<rows; i++) {
+        for(int j=0; j<cols; j++) {
             mat.M[i][j] = M[i][j] * x;
         }
     }
@@ -76,8 +91,8 @@ axion::Matrix axion::Matrix::operator*(int x) {
 axion::Matrix axion::Matrix::operator/(int x) {
     Matrix mat(rows, cols);
 
-    for(int i=0; i<cols; i++) {
-        for(int j=0; j<rows; j++) {
+    for(int i=0; i<rows; i++) {
+        for(int j=0; j<cols; j++) {
             mat.M[i][j] = M[i][j] / x;
         }
     }
@@ -89,8 +104,8 @@ axion::Matrix axion::Matrix::transpose() {
     matrix mat_t;
     mat_t.resize(rows, std::vector<double>(cols));
 
-    for(int i=0; i<cols; i++) {
-        for(int j=0; j<rows; j++) {
+    for(int i=0; i<rows; i++) {
+        for(int j=0; j<cols; j++) {
             mat_t[i][j] = M[j][i];
         }
     }
@@ -111,8 +126,8 @@ size_t axion::Matrix::cols_() const {
 }
 
 std::istream& axion::operator>>(std::istream& in, Matrix& mat) {
-    for(int i=0; i<mat.cols_(); i++) {
-        for(int j=0; j<mat.rows_(); j++) {
+    for(int i=0; i<mat.rows_(); i++) {
+        for(int j=0; j<mat.cols_(); j++) {
             in >> mat.M[i][j];
         }
     }
@@ -122,8 +137,8 @@ std::istream& axion::operator>>(std::istream& in, Matrix& mat) {
 
 std::ostream& axion::operator<<(std::ostream &out, Matrix &mat)
 {
-    for(int i=0; i<mat.cols_(); i++) {
-        for(int j=0; j<mat.rows_(); j++) {
+    for(int i=0; i<mat.rows_(); i++) {
+        for(int j=0; j<mat.cols_(); j++) {
             out << mat.M[i][j] << " ";
         }
         out << "\n";

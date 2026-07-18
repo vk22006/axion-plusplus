@@ -15,8 +15,9 @@ class Matrix {
         Matrix(const matrix& M);
 
         // Matrix Operations (Matrix with Matrix)
-        Matrix operator+(Matrix& mat_B);
-        Matrix operator-(Matrix& mat_B);
+        Matrix operator+(Matrix& mat);
+        Matrix operator-(Matrix& mat);
+        Matrix operator*(Matrix& mat);
 
         // Scalar Operations (Matrix with number)
         Matrix operator+(int x);
