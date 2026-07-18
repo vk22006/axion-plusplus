@@ -13,8 +13,7 @@ int main() {
 
     axion::Matrix A(data);
 
-    axion::matrix t = A.transpose();
-    axion::Matrix T(t);
+    axion::Matrix T = A.transpose();
     std::cout << T;
 
     std::cout << "Rows = " << A.rows_() << "\n";

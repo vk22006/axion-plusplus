@@ -11,8 +11,7 @@ int main() {
 
     axion::Matrix A(data);
 
-    axion::matrix b = A / 2;
-    axion::Matrix B(b);
+    axion::Matrix B = A / 2;
 
     std::cout << B;
 

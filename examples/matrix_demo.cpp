@@ -13,9 +13,8 @@ int main() {
 
     axion::Matrix A(data);
     
-    axion::matrix res = A + A;
-    axion::Matrix R(res);
-    std::cout << R;
+    axion::Matrix Res = A + A;
+    std::cout << Res;
 
     std::cout << "Rows = " << A.rows_() << "\n";
     std::cout << "Cols = " << A.cols_();
