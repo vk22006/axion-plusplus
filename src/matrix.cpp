@@ -14,9 +14,30 @@ axion::Matrix::Matrix(const matrix& M) {
     rows = M.size();
 }
 
+axion::Matrix axion::Matrix::identity(int dimension) {
+    Matrix I(dimension, dimension);
+    for(int i=0; i<dimension; i++) {
+        for(int j=0; j<dimension; j++) {
+            if(i==j) {
+                I.M[i][j] = 1;
+            }
+        }
+    }
+
+    return I;
+}
+
+void axion::Matrix::fill(int val) {
+    for(int i=0; i<rows; i++) {
+        for(int j=0; j<cols; j++) {
+            M[i][j] = val;
+        }
+    }
+}
+
 // MATRIX OPERATIONS ===========================================
 
-axion::Matrix axion::Matrix::operator+(Matrix& mat) {
+axion::Matrix axion::Matrix::operator+(const Matrix& mat) const {
     Matrix res_mat(rows, cols);
 
     for(int i=0; i<rows; i++) {
@@ -27,7 +48,7 @@ axion::Matrix axion::Matrix::operator+(Matrix& mat) {
     return res_mat;
 }
 
-axion::Matrix axion::Matrix::operator-(Matrix& mat) {
+axion::Matrix axion::Matrix::operator-(const Matrix& mat) const {
     Matrix res_mat(rows, cols);
 
     for(int i=0; i<rows; i++) {
@@ -38,7 +59,7 @@ axion::Matrix axion::Matrix::operator-(Matrix& mat) {
     return res_mat;
 }
 
-axion::Matrix axion::Matrix::operator*(Matrix& mat) {
+axion::Matrix axion::Matrix::operator*(const Matrix& mat) const {
     Matrix res_mat(rows, cols);
 
     for(int i=0; i<rows; i++) {
@@ -55,7 +76,7 @@ axion::Matrix axion::Matrix::operator*(Matrix& mat) {
 
 // SCALAR OPERATIONS ===========================================
 
-axion::Matrix axion::Matrix::operator+(int x) {
+axion::Matrix axion::Matrix::operator+(int x) const {
     Matrix mat(rows, cols);
 
     for(int i=0; i<rows; i++) {
@@ -66,7 +87,7 @@ axion::Matrix axion::Matrix::operator+(int x) {
     return mat;
 }
 
-axion::Matrix axion::Matrix::operator-(int x) {
+axion::Matrix axion::Matrix::operator-(int x) const {
     Matrix mat(rows, cols);
 
     for(int i=0; i<rows; i++) {
@@ -77,7 +98,7 @@ axion::Matrix axion::Matrix::operator-(int x) {
     return mat;
 }
 
-axion::Matrix axion::Matrix::operator*(int x) {
+axion::Matrix axion::Matrix::operator*(int x) const {
     Matrix mat(rows, cols);
 
     for(int i=0; i<rows; i++) {
@@ -88,7 +109,7 @@ axion::Matrix axion::Matrix::operator*(int x) {
     return mat;
 }
 
-axion::Matrix axion::Matrix::operator/(int x) {
+axion::Matrix axion::Matrix::operator/(int x) const {
     Matrix mat(rows, cols);
 
     for(int i=0; i<rows; i++) {
@@ -117,6 +138,19 @@ double axion::Matrix::operator()(int i, int j) {
     return M[i][j];
 }
 
+bool axion::Matrix::operator==(const Matrix& mat) {
+    bool isEqual = false;
+    for(int i=0; i<rows; i++) {
+        for(int j=0; j<cols; j++) {
+            if(M[i][j] == mat.M[i][j]) {
+                isEqual = true;
+            }
+        }
+    }
+
+    return isEqual;
+}
+
 size_t axion::Matrix::rows_() const {
     return rows;
 }
@@ -135,7 +169,7 @@ std::istream& axion::operator>>(std::istream& in, Matrix& mat) {
     return in;
 }
 
-std::ostream& axion::operator<<(std::ostream &out, Matrix &mat)
+std::ostream& axion::operator<<(std::ostream &out, const Matrix &mat)
 {
     for(int i=0; i<mat.rows_(); i++) {
         for(int j=0; j<mat.cols_(); j++) {

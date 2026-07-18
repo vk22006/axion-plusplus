@@ -14,26 +14,31 @@ class Matrix {
         Matrix(size_t rows, size_t cols);
         Matrix(const matrix& M);
 
+        // Identity Matrix
+        Matrix identity(int dimension);
+        void fill(int val);
+
         // Matrix Operations (Matrix with Matrix)
-        Matrix operator+(Matrix& mat);
-        Matrix operator-(Matrix& mat);
-        Matrix operator*(Matrix& mat);
+        Matrix operator+(const Matrix& mat) const;
+        Matrix operator-(const Matrix& mat) const;
+        Matrix operator*(const Matrix& mat) const;
 
         // Scalar Operations (Matrix with number)
-        Matrix operator+(int x);
-        Matrix operator-(int x);
-        Matrix operator*(int x);
-        Matrix operator/(int x);
+        Matrix operator+(int x) const;
+        Matrix operator-(int x) const;
+        Matrix operator*(int x) const;
+        Matrix operator/(int x) const;
 
         Matrix transpose();
 
         double operator()(int i, int j);   // Returns element based on its index
+        bool operator==(const Matrix& mat);    // Checks if two matrices are equal
 
         size_t rows_() const;
         size_t cols_() const;
 
         friend std::istream& operator>>(std::istream& in, Matrix& mat);
-        friend std::ostream& operator<<(std::ostream& out, Matrix& mat);
+        friend std::ostream& operator<<(std::ostream& out, const Matrix& mat);
 };
 
 } //namespace axion
