@@ -15,27 +15,24 @@ class Matrix {
         Matrix(const matrix& M);
 
         // Matrix Operations (Matrix with Matrix)
-        matrix operator+(Matrix& mat_B);
-        matrix operator-(Matrix& mat_B);
+        Matrix operator+(Matrix& mat_B);
+        Matrix operator-(Matrix& mat_B);
 
         // Scalar Operations (Matrix with number)
-        matrix operator+(int x);
-        matrix operator-(int x);
-        matrix operator*(int x);
-        matrix operator/(int x);
+        Matrix operator+(int x);
+        Matrix operator-(int x);
+        Matrix operator*(int x);
+        Matrix operator/(int x);
 
-        matrix transpose();
+        Matrix transpose();
 
         double operator()(int i, int j);   // Returns element based on its index
 
         size_t rows_() const;
         size_t cols_() const;
 
-        void input(matrix& mat);
+        friend std::istream& operator>>(std::istream& in, Matrix& mat);
         friend std::ostream& operator<<(std::ostream& out, Matrix& mat);
 };
-
-// FIXME: Make the function to print matrix directly
-std::ostream& operator<<(std::ostream& out, matrix& mat);
 
 } //namespace axion
