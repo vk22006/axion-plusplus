@@ -28,32 +28,20 @@ target_include_directories(axion
 # Example Executable
 # =====================================================
 
-add_executable(matrix_demo
-    examples/matrix_demo.cpp
-)
-add_executable(transpose_matrix
-    examples/transpose_matrix.cpp
-)
-add_executable(scalar_operations
-    examples/scalar_operations.cpp
-)
-add_executable(matrix_multiplication
-    examples/matrix_multiplication.cpp
+set(EXAMPLES
+    matrix_demo
+    transpose_matrix
+    scalar_operations
+    matrix_multiplication
 )
 
-target_link_libraries(matrix_demo
-    PRIVATE
-        axion
-)
-target_link_libraries(transpose_matrix
-    PRIVATE
-        axion
-)
-target_link_libraries(scalar_operations
-    PRIVATE
-        axion
-)
-target_link_libraries(matrix_multiplication
-    PRIVATE
-        axion
-)
+foreach(example ${EXAMPLES})
+    add_executable(${example}
+        examples/${example}.cpp
+    )
+
+    target_link_libraries(${example}
+        PRIVATE
+            axion
+    )
+endforeach()
