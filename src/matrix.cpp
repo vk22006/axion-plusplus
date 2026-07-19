@@ -2,6 +2,12 @@
 #include <vector>
 #include "axion/matrix.hpp"
 
+axion::Matrix::Matrix() {
+    rows = 0;
+    cols = 0;
+    M = {};
+}  // Creating an empty matrix
+
 axion::Matrix::Matrix(size_t rows, size_t cols) {
     this->rows = rows;
     this->cols = cols;
@@ -14,17 +20,16 @@ axion::Matrix::Matrix(const matrix& M) {
     rows = M.size();
 }
 
-axion::Matrix axion::Matrix::identity(int dimension) {
-    Matrix I(dimension, dimension);
+void axion::Matrix::identity(double dimension) {
+    rows = cols = dimension;
+    M.resize(dimension, std::vector<double>(dimension));
     for(int i=0; i<dimension; i++) {
         for(int j=0; j<dimension; j++) {
             if(i==j) {
-                I.M[i][j] = 1;
+                M[i][j] = 1.0;
             }
         }
     }
-
-    return I;
 }
 
 void axion::Matrix::fill(int val) {

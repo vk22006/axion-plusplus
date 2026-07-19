@@ -11,11 +11,12 @@ class Matrix {
         size_t rows;
         size_t cols;
     public:
+        Matrix();
         Matrix(size_t rows, size_t cols);
         Matrix(const matrix& M);
 
         // Identity Matrix
-        Matrix identity(int dimension);
+        void identity(double dimension);
         void fill(int val);
 
         // Matrix Operations (Matrix with Matrix)
