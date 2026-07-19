@@ -3,15 +3,12 @@
 #include <axion/matrix.hpp>
 
 int main() {
-    std::cout << axion::VERSION << "\n";
 
-    axion::matrix data = {
+    axion::Matrix A({
         {1, 2, 3},
         {4, 5, 6},
         {7, 8, 9}
-    };
-
-    axion::Matrix A(data);
+    });
 
     axion::Matrix T = A.transpose();
     std::cout << T;
