@@ -34,6 +34,7 @@ class Matrix {
 
         double operator()(int i, int j);   // Returns element based on its index
         bool operator==(const Matrix& mat);    // Checks if two matrices are equal
+        bool operator!=(const Matrix& mat);
 
         size_t rows_() const;
         size_t cols_() const;

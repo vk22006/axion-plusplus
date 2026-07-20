@@ -144,11 +144,24 @@ double axion::Matrix::operator()(int i, int j) {
 }
 
 bool axion::Matrix::operator==(const Matrix& mat) {
+    bool isEqual = true;
+    for(int i=0; i<rows; i++) {
+        for(int j=0; j<cols; j++) {
+            if(M[i][j] != mat.M[i][j]) {
+                return false;
+            }
+        }
+    }
+
+    return isEqual;
+}
+
+bool axion::Matrix::operator!=(const Matrix& mat) {
     bool isEqual = false;
     for(int i=0; i<rows; i++) {
         for(int j=0; j<cols; j++) {
-            if(M[i][j] == mat.M[i][j]) {
-                isEqual = true;
+            if(M[i][j] != mat.M[i][j]) {
+                return true;
             }
         }
     }
