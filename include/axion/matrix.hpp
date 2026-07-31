@@ -1,46 +1,46 @@
 #pragma once
 
-#include <axion/config.hpp>
-#include <axion/version.hpp>
+#include "config.hpp"
+#include "version.hpp"
 
 namespace axion {
 
 class Matrix {
-    private:
-        matrix M;
-        size_t rows;
-        size_t cols;
-    public:
-        Matrix();
-        Matrix(size_t rows, size_t cols);
-        Matrix(const matrix& M);
+  private:
+    matrix M;
+    size_t rows;
+    size_t cols;
 
-        // Identity Matrix
-        void identity(double dimension);
-        void fill(int val);
+  public:
+    Matrix();
+    Matrix(size_t rows, size_t cols);
+    Matrix(const matrix &M);
 
-        // Matrix Operations (Matrix with Matrix)
-        Matrix operator+(const Matrix& mat) const;
-        Matrix operator-(const Matrix& mat) const;
-        Matrix operator*(const Matrix& mat) const;
+    // Identity Matrix
+    void identity(double dimension);
+    void fill(int val);
 
-        // Scalar Operations (Matrix with number)
-        Matrix operator+(int x) const;
-        Matrix operator-(int x) const;
-        Matrix operator*(int x) const;
-        Matrix operator/(int x) const;
+    // Matrix Operations (Matrix with Matrix)
+    Matrix operator+(const Matrix &mat) const;
+    Matrix operator-(const Matrix &mat) const;
+    Matrix operator*(const Matrix &mat) const;
 
-        Matrix transpose();
+    // Scalar Operations (Matrix with number)
+    Matrix operator+(int x) const;
+    Matrix operator-(int x) const;
+    Matrix operator*(int x) const;
+    Matrix operator/(int x) const;
 
-        double operator()(int i, int j);   // Returns element based on its index
-        bool operator==(const Matrix& mat);    // Checks if two matrices are equal
-        bool operator!=(const Matrix& mat);
+    Matrix transpose();
 
-        size_t rows_() const;
-        size_t cols_() const;
+    double operator()(int i, int j);    // Returns element based on its index
+    bool operator==(const Matrix &mat); // Checks if two matrices are equal
+    bool operator!=(const Matrix &mat);
 
-        friend std::istream& operator>>(std::istream& in, Matrix& mat);
-        friend std::ostream& operator<<(std::ostream& out, const Matrix& mat);
-};
+    size_t rows_() const;
+    size_t cols_() const;
 
-} //namespace axion
+    friend std::istream &operator>>(std::istream &in, Matrix &mat);
+    friend std::ostream &operator<<(std::ostream &out, const Matrix &mat);
+  };
+} // namespace axion
