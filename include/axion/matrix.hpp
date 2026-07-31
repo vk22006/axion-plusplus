@@ -2,6 +2,7 @@
 
 #include "config.hpp"
 #include "version.hpp"
+#include <iosfwd>
 
 namespace axion {
 

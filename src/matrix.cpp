@@ -1,6 +1,6 @@
 
-#include "axion/matrix.hpp"
-#include "axion/exceptions.hpp"
+#include "../include/axion/matrix.hpp"
+#include "../include/axion/exceptions.hpp"
 #include <iostream>
 #include <vector>
 
