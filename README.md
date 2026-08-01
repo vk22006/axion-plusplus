@@ -20,61 +20,6 @@ The project serves two purposes:
 * Educational implementation
 * Reusable as a standalone library
 
----
-
-## Roadmap
-
-### v0.1.0
-
-* Matrix class
-* Matrix arithmetic
-* Matrix multiplication
-* Transpose
-* Random initialization
-* Matrix serialization
-* Unit tests
-* Benchmarks
-* Documentation
-
-### v0.2.0
-
-* Activation functions
-
-### v0.3.0
-
-* Loss functions
-
-### v0.4.0
-
-* Dense layers
-* Forward propagation
-
-### v0.5.0
-
-* Backpropagation
-
-### v0.6.0
-
-* Training engine
-
-### v0.7.0
-
-* Model serialization
-
-### v0.8.0
-
-* Dataset utilities
-
-### v0.9.0
-
-* Examples and documentation improvements
-
-### v1.0.0
-
-* Stable lightweight neural network library
-
----
-
 ## Project Structure
 
 ```text
@@ -90,8 +35,6 @@ Axion++/
 └── CMakeLists.txt
 ```
 
----
-
 ## Building
 
 ```bash
@@ -103,8 +46,6 @@ cmake -B build
 
 cmake --build build
 ```
-
----
 
 ## Example
 
@@ -171,7 +112,6 @@ Performance benchmarks are included for major matrix operations such as:
 ## Documentation
 
 Documentation can be found inside the `docs/` directory and will expand with each release.
-
 
 ## Technologies
 
