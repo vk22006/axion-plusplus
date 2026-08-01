@@ -45,3 +45,40 @@ foreach(example ${EXAMPLES})
             axion
     )
 endforeach()
+
+# =====================================================
+# Tests
+# =====================================================
+
+enable_testing()
+
+set(TESTS
+    MatrixConstruction
+    Identity
+    Fill
+    MatrixAddition
+    MatrixSubtraction
+    MatrixMultiplication
+    ScalarOperations
+    Transpose
+    Equality
+)
+
+foreach(test ${TESTS})
+    add_executable(${test}
+        tests/${test}.cpp
+    )
+
+    target_include_directories(${test}
+        PRIVATE
+            ${PROJECT_SOURCE_DIR}/tests
+    )
+
+    target_link_libraries(${test}
+        PRIVATE
+            axion
+    )
+
+    add_test(NAME ${test} COMMAND ${test})
+endforeach()
+
