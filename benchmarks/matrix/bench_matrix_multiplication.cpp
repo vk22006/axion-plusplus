@@ -8,6 +8,7 @@
 #include <axion/matrix.hpp>
 
 #include <chrono>
+#include <string>
 #include <cmath>
 #include <iomanip>
 #include <iostream>
