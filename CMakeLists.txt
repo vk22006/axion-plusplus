@@ -82,3 +82,24 @@ foreach(test ${TESTS})
     add_test(NAME ${test} COMMAND ${test})
 endforeach()
 
+# =====================================================
+# Benchmarks
+# =====================================================
+
+set(BENCHMARKS
+    bench_matrix_addition
+    bench_matrix_multiplication
+    bench_matrix_transpose
+)
+
+foreach(bench ${BENCHMARKS})
+    add_executable(${bench}
+        benchmarks/matrix/${bench}.cpp
+    )
+
+    target_link_libraries(${bench}
+        PRIVATE
+            axion
+    )
+endforeach()
+
