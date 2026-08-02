@@ -103,3 +103,19 @@ foreach(bench ${BENCHMARKS})
     )
 endforeach()
 
+# =====================================================
+# Documentation (Doxygen)
+# =====================================================
+
+find_package(Doxygen)
+
+if(DOXYGEN_FOUND)
+
+    add_custom_target(doc
+        COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_SOURCE_DIR}/Doxyfile
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+        COMMENT "Generating Axion++ Documentation"
+    )
+
+endif()
+
