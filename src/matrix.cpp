@@ -168,7 +168,9 @@ bool axion::Matrix::operator==(const Matrix &mat) {
   return true;
 }
 
-bool axion::Matrix::operator!=(const Matrix &mat) { return !(*this == mat); }
+bool axion::Matrix::operator!=(const Matrix &mat) { 
+  return !(*this == mat); 
+}
 
 size_t axion::Matrix::rows_() const { return rows; }
 
