@@ -8,7 +8,7 @@
 * [x] Transpose
 * [x] Random initialization
 * [x] Unit tests
-* [ ] Benchmarks
+* [x] Benchmarks
 * [ ] Documentation
 
 ## v0.2.0
