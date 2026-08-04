@@ -2,7 +2,7 @@
 
 **A lightweight neural network library built from scratch in modern C++.**
 
-Axion++ is a proof-of-concept educational neural network library that builds every major component from first principles starting with linear algebra and evolving incrementally into a complete deep learning engine. It relies on no external ML frameworks and is designed to be read, understood, and extended.
+Axion++ is a proof-of-concept educational neural network library that builds every major component from first principles starting with linear algebra and evolving incrementally into a complete deep learning engine. It relies on no external ML frameworks and is designed to be read, understood, and extended. Status: **Under Construction**
 
 ---
 
@@ -30,13 +30,13 @@ Axion++ is a proof-of-concept educational neural network library that builds eve
 | `cin >> A`, `cout << A` | Stream I/O |
 
 ### Exceptions
+
 All errors derive from `axion::AxionError`:
+
 - `MatrixDimensionError` — incompatible shapes
 - `InvalidIndexError` — out-of-bounds access
 - `InvalidShapeError` — malformed construction
 - `DivisionByZeroError` — scalar division by zero
-
----
 
 ## Building
 
@@ -63,8 +63,6 @@ cmake --build build --target doc
 ```
 
 Docs are generated into the `docs/` directory using Doxygen.
-
----
 
 ## Quick Start
 
@@ -102,8 +100,6 @@ int main() {
 
 More examples are in the [`examples/`](examples/) directory.
 
----
-
 ## Project Structure
 
 ```text
@@ -121,8 +117,6 @@ axion-plusplus/
 └── CMakeLists.txt
 ```
 
----
-
 ## Roadmap
 
 Axion++ grows incrementally. Planned milestones beyond v0.1.0:
@@ -135,8 +129,6 @@ Axion++ grows incrementally. Planned milestones beyond v0.1.0:
 
 The project intentionally prioritizes clarity and maintainability over raw performance.
 
----
-
 ## Technologies
 
 | Tool | Purpose |
@@ -147,20 +139,14 @@ The project intentionally prioritizes clarity and maintainability over raw perfo
 | Doxygen | API documentation |
 | GitHub Actions | Continuous integration |
 
----
-
 ## Contributing
 
 Contributions, bug reports, and suggestions are welcome!
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
----
-
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for a full history of changes.
-
----
 
 ## License
 
