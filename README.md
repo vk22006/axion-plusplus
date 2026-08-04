@@ -1,4 +1,4 @@
-<img align="left" src="docs/img/logo.png">
+<img align="left" src="docs/img/logo.png" width="280px">
 
 **A lightweight neural network library built from scratch in modern C++.**
 
