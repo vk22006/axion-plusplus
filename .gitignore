@@ -3,3 +3,6 @@ build/*
 
 # Generated Doxygen documentation
 docs/html/
+
+# Image materials
+docs/img/others/
